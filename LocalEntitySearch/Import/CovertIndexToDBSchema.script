@@ -1,0 +1,42 @@
+﻿//Script GUID:59001db3-fee7-4afe-bab5-254d819dddf3
+//Used for tracking history
+
+
+#DECLARE country string = @"TW";
+
+#IF(LOCAL)
+
+   #DECLARE publishedDataInput string = @"D:\TMP\LocalSearch\TW\query\TW_published.txt";
+
+    #DECLARE output string = @publishedDataInput + ".out";
+
+#ELSE
+
+
+#DECLARE publishedDataInput string = @"/shares/ldp-storage/pipelinedata/data/local/gdp-prod/PipelineData/zh-" + @country + "/Publish/EntityIndex/Latest/" + @country + "EntityPublished.xml";
+
+#DECLARE output string = @"/my/zh-" + @country + "/Publish/EntityIndex/Latest/" + @country + "DB.txt";
+
+#ENDIF
+
+
+
+publishedData = 
+    EXTRACT content
+    FROM @publishedDataInput
+    USING DefaultTextExtractor;
+
+
+final = 
+    SELECT  Utils.ExtractId(content) AS Id,
+            Utils.ExtractYpId(content) AS YpId,
+            Utils.ExtractExternalId(content) AS ExternalId,
+            Utils.ExtractMeta(content, "odptitle") AS odptitle,
+            Utils.ExtractMeta(content, "odpdescription") AS odpdescription,
+            Utils.ExtractMeta(content, "FeedsMulti8") AS FeedsMulti8,
+            Utils.ExtractMeta(content, "FeedsMulti9") AS FeedsMulti9
+    FROM publishedData;
+
+
+OUTPUT final 
+TO @output;
