@@ -1,6 +1,6 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="LocalEntitySearch.About" %>
+﻿<%@ Page Title="About" Language="C#" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="LocalEntitySearch.About" %>
 
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+<%--<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
         <h2>Your app description page.</h2>
@@ -31,4 +31,4 @@
             <li><a runat="server" href="~/Contact">Contact</a></li>
         </ul>
     </aside>
-</asp:Content>
+</asp:Content>--%>
