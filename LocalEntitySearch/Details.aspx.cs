@@ -14,7 +14,7 @@ namespace LocalEntitySearch
             var id = Request.QueryString["lid"];
             if(string.IsNullOrWhiteSpace(id))
             {
-                id = "YN873x2752735941963594177";
+                id = "YN873x119742427";
             }
             var url = string.Format("http://www.bing.com/local?lid={0}", id);
 
