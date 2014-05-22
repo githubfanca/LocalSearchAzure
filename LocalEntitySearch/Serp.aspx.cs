@@ -7,20 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace LocalEntitySearch
 {
-    public partial class Local : System.Web.UI.Page
+    public partial class Serp : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var id = Request.QueryString["lid"];
-            if(string.IsNullOrWhiteSpace(id))
-            {
-                id = "YN873x2752735941963594177";
-            }
-            var url = string.Format("http://www.bing.com/local?lid={0}", id);
+
+            var url =
+                "http://www.bing.com/search?q=purple+cafe+kirkland&qs=n&form=QBLH&pq=purple+cafe+ki&sc=8-14&sp=-1&sk=&ghc=2&cvid=f65a98e1b69848b0b26e8a5188a961d0";
 
             myIframe.Src = url;
 
-            QRcode.ImageUrl = string.Format("http://www.esponce.com/api/v3/generate?content={0}&format=png", HttpUtility.UrlEncode(url));
+            QRcode.ImageUrl = string.Format("http://www.esponce.com/api/v3/generate?content={0}&format=png", HttpUtility.UrlEncode("http://www.bing.com/local?lid=YN873x2752735941963594177"));
 
             var display = Request.QueryString["d"];
             if (display == "y")

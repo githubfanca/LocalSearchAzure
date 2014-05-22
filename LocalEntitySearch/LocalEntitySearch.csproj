@@ -240,6 +240,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Serp.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -332,6 +333,13 @@
     <Compile Include="ResourceAccess\Model\SearchResult.cs" />
     <Compile Include="ResourceAccess\Model\Entity.cs" />
     <Compile Include="ResourceAccess\Infrastructure\SqlDataAccessConfiguration.cs" />
+    <Compile Include="Serp.aspx.cs">
+      <DependentUpon>Serp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Serp.aspx.designer.cs">
+      <DependentUpon>Serp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
